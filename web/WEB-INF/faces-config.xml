@@ -13,5 +13,23 @@
             <from-outcome>index2newdatastore</from-outcome>
             <to-view-id>/newdatastore.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>index2editfilm</from-outcome>
+            <to-view-id>/editfilm.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/editfilm.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>editfilm2index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/newfilm.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>newfilm2index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
 </faces-config>

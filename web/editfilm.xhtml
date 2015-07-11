@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>New Film</title>
+        <title>Edit Film</title>
     </h:head>
     <h:body>
         <h:form>
@@ -34,19 +34,19 @@
                 </tr>
                 <tr>
                     <td>
-                        <h:inputText value="#{catalog.newFilmIns.title}" id="titleId"/>
+                        <h:inputText value="#{catalog.editFilmIns.title}" id="titleId"/>
                     </td>
                     <td>
-                        <h:inputText value="#{catalog.newFilmIns.director}" id="directorId"/>
+                        <h:inputText value="#{catalog.editFilmIns.director}" id="directorId"/>
                     </td>
                     <td>
-                        <h:inputText value="#{catalog.newFilmIns.time}" id="timeId"/>
+                        <h:inputText value="#{catalog.editFilmIns.time}" id="timeId"/>
                     </td>
                     <td>
-                        <h:inputText value="#{catalog.newFilmIns.genre}" id="genreId"/>
+                        <h:inputText value="#{catalog.editFilmIns.genre}" id="genreId"/>
                     </td>
                     <td>
-                        <h:inputText value="#{catalog.newFilmIns.year}" id="yearId"/>
+                        <h:inputText value="#{catalog.editFilmIns.year}" id="yearId"/>
                     </td>
                     <td>
                         <h:selectOneMenu value="#{catalog.actDatastore}">
@@ -54,7 +54,7 @@
                         </h:selectOneMenu>
                     </td>
                     <td colspan="2">
-                        <h:commandButton value="Add" action="#{catalog.newFilm()}"/>
+                        <h:commandButton value="Edit" action="#{catalog.editFilm()}"/>
                     </td>
                 </tr>
                 <tr>
