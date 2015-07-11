@@ -84,7 +84,7 @@ public class Datastore  implements java.io.Serializable {
         this.place = place;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="datastore")
+@OneToMany(fetch=FetchType.EAGER, mappedBy="datastore")
     public Set<Film> getFilms() {
         return this.films;
     }

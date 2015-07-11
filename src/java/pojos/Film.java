@@ -58,7 +58,7 @@ public class Film  implements java.io.Serializable {
         this.id = id;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+@ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="datastore_id", nullable=false)
     public Datastore getDatastore() {
         return this.datastore;
