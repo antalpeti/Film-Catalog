@@ -34,6 +34,7 @@ public class Catalog {
     private static final String YEAR = "Year";
 
     private Film film;
+    private Datastore datastore;
     private String status;
 
     private List<Datastore> datastoreList;
@@ -48,6 +49,7 @@ public class Catalog {
         datastoreCombo = new ArrayList<String>();
         queryDatastoreFromDB();
         film = new Film();
+        datastore = new Datastore();
         searchParameterList = new ArrayList<String>();
         searchParameterList.add(TITLE);
         searchParameterList.add(DIRECTOR);
@@ -91,11 +93,6 @@ public class Catalog {
     }
 
     public void newFilm() {
-//        if (film.getCim() != null && film.getRendezo() != null && film.getHossz() != null
-//                && film.getMufaj() != null && film.getAdattarolo() != null
-//                && !film.getCim().isEmpty() && !film.getRendezo().isEmpty()
-//                && !film.getHossz().isEmpty() && !film.getMufaj().isEmpty()
-//                && !aktAdattarolo.isEmpty()) {
         for (Datastore ds : datastoreList) {
             if (ds.toString().equals(actDatastore)) {
                 film.setDatastore(ds);
@@ -108,10 +105,18 @@ public class Catalog {
         session.close();
         film = new Film();
         status = "Addition of new film was succesful.";
-//        } else {
-//            hiba = "Ki kell tölteni az összes mezőt!!!";
-//        }
         queryFilmsFromDB();
+    }
+
+    public void newDatastore() {
+        Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.save(datastore);
+        session.getTransaction().commit();
+        session.close();
+        datastore = new Datastore();
+        status = "Addition of new datastore was succesful.";
+        queryDatastoreFromDB();
     }
 
     public List<Film> getFilteredFilmList() {
@@ -184,5 +189,13 @@ public class Catalog {
 
     public void setActDatastore(String actDatastore) {
         this.actDatastore = actDatastore;
+    }
+
+    public Datastore getDatastore() {
+        return datastore;
+    }
+
+    public void setDatastore(Datastore datastore) {
+        this.datastore = datastore;
     }
 }
