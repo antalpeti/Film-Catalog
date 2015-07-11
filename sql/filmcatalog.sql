@@ -54,7 +54,7 @@ CREATE TABLE `film` (
   `id` int(11) NOT NULL,
   `title` varchar(90) DEFAULT NULL,
   `director` varchar(45) DEFAULT NULL,
-  `length` varchar(45) DEFAULT NULL,
+  `time` varchar(45) DEFAULT NULL,
   `genre` varchar(45) DEFAULT NULL,
   `year` int(11) DEFAULT NULL,
   `datastore_id` int(11) NOT NULL,
@@ -83,4 +83,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-11 21:28:23
+-- Dump completed on 2015-07-11 21:46:15
