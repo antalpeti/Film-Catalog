@@ -8,6 +8,23 @@
     </h:head>
     <h:body>
         <h:form>
+            <table>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Search:" for="searchTextId"/>
+                        <h:inputText value="#{catalog.searchText}" id="searchTextId"/>
+                    </td>
+                    <td>
+                        <h:outputText value="Parameter:"/>
+                        <h:selectOneMenu value="#{catalog.actSearchParameter}">
+                            <f:selectItems value="#{catalog.searchParameterList}"/>
+                        </h:selectOneMenu><br/>
+                    </td>
+                    <td>
+                        <h:commandButton value="Search" action="#{catalog.searchFilm()}"/><br/>
+                    </td>
+                </tr>   
+            </table>
             <h:dataTable value="#{catalog.filteredFilmList}" var="film">
                 <h:column>
                     <f:facet name="header">
