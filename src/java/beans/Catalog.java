@@ -10,6 +10,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.hibernate.Session;
+import pojos.Datastore;
 import pojos.Film;
 
 /**
@@ -32,11 +33,21 @@ public class Catalog {
     private static final String GENRE = "Genre";
     private static final String YEAR = "Year";
 
+    private Film film;
+    private String status;
+
+    private List<Datastore> datastoreList;
+    private List<String> datastoreCombo;
+    private String actDatastore;
+
     /**
      * Creates a new instance of Catalog
      */
     public Catalog() {
         queryFilmsFromDB();
+        datastoreCombo = new ArrayList<String>();
+        queryDatastoreFromDB();
+        film = new Film();
         searchParameterList = new ArrayList<String>();
         searchParameterList.add(TITLE);
         searchParameterList.add(DIRECTOR);
@@ -55,6 +66,16 @@ public class Catalog {
         session.close();
     }
 
+    private void queryDatastoreFromDB() {
+        Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
+        datastoreList = session.createQuery("FROM Datastore").list();
+        session.close();
+        datastoreCombo.clear();
+        for (Datastore ds : datastoreList) {
+            datastoreCombo.add(ds.toString());
+        }
+    }
+
     public void searchFilm() {
         filteredFilmList.clear();
         for (Film f : fullFilmList) {
@@ -67,6 +88,30 @@ public class Catalog {
                 filteredFilmList.add(f);
             }
         }
+    }
+
+    public void newFilm() {
+//        if (film.getCim() != null && film.getRendezo() != null && film.getHossz() != null
+//                && film.getMufaj() != null && film.getAdattarolo() != null
+//                && !film.getCim().isEmpty() && !film.getRendezo().isEmpty()
+//                && !film.getHossz().isEmpty() && !film.getMufaj().isEmpty()
+//                && !aktAdattarolo.isEmpty()) {
+        for (Datastore ds : datastoreList) {
+            if (ds.toString().equals(actDatastore)) {
+                film.setDatastore(ds);
+            }
+        }
+        Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.save(film);
+        session.getTransaction().commit();
+        session.close();
+        film = new Film();
+        status = "Addition of new film was succesful.";
+//        } else {
+//            hiba = "Ki kell tölteni az összes mezőt!!!";
+//        }
+        queryFilmsFromDB();
     }
 
     public List<Film> getFilteredFilmList() {
@@ -99,5 +144,45 @@ public class Catalog {
 
     public void setSearchText(String searchText) {
         this.searchText = searchText;
+    }
+
+    public Film getFilm() {
+        return film;
+    }
+
+    public void setFilm(Film film) {
+        this.film = film;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<Datastore> getDatastoreList() {
+        return datastoreList;
+    }
+
+    public void setDatastoreList(List<Datastore> datastoreList) {
+        this.datastoreList = datastoreList;
+    }
+
+    public List<String> getDatastoreCombo() {
+        return datastoreCombo;
+    }
+
+    public void setDatastoreCombo(List<String> datastoreCombo) {
+        this.datastoreCombo = datastoreCombo;
+    }
+
+    public String getActDatastore() {
+        return actDatastore;
+    }
+
+    public void setActDatastore(String actDatastore) {
+        this.actDatastore = actDatastore;
     }
 }

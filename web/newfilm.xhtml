@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>New Film</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <table>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Title" for="titleId" />
+                    </td>
+                    <td>
+                        <h:outputLabel value="Director" for="directorId" />
+                    </td>
+                    <td>
+                        <h:outputLabel value="Time" for="timeId" />
+                    </td>
+                    <td>
+                        <h:outputLabel value="Genre" for="genreId" />
+                    </td>
+                    <td>
+                        <h:outputLabel value="Year" for="yearId" />
+                    </td>
+                    <td>
+                        <h:outputLabel value="Datastore"/>
+                    </td>
+                    <td>
+                        <h:outputLabel value="Confirm"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:inputText value="#{catalog.film.title}" id="titleId"/>
+                    </td>
+                    <td>
+                        <h:inputText value="#{catalog.film.director}" id="directorId"/>
+                    </td>
+                    <td>
+                        <h:inputText value="#{catalog.film.time}" id="timeId"/>
+                    </td>
+                    <td>
+                        <h:inputText value="#{catalog.film.genre}" id="genreId"/>
+                    </td>
+                    <td>
+                        <h:inputText value="#{catalog.film.year}" id="yearId"/>
+                    </td>
+                    <td>
+                        <h:selectOneMenu value="#{catalog.actDatastore}">
+                            <f:selectItems value="#{catalog.datastoreCombo}"/>
+                        </h:selectOneMenu>
+                    </td>
+                    <td colspan="2">
+                        <h:commandButton value="Add" action="#{catalog.newFilm()}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7">
+                        <h:outputText value="#{catalog.status}" />
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+
