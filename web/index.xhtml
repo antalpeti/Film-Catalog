@@ -5,6 +5,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Film Catalog</title>
+        <link rel="stylesheet" href="#{request.contextPath}/styles/pagestyle.css" type="text/css"/>
     </h:head>
     <h:body>
         <h:form>
@@ -29,7 +30,9 @@
                     </td>
                 </tr>   
             </table>
-            <h:dataTable value="#{catalog.filteredFilmList}" var="film">
+            <h:dataTable styleClass="table" headerClass="tableHeader" 
+                     rowClasses="tableOddRow,tableEvenRow" 
+                value="#{catalog.filteredFilmList}" var="film">
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Title"/>
