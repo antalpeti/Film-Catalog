@@ -37,7 +37,7 @@ public class Catalog {
     private Film editFilmIns;
     private Datastore newDatastoreIns;
     private Datastore editDatastoreIns;
-    private String status;
+    private String statusMessage;
 
     private List<Datastore> datastoreList;
     private List<String> datastoreCombo;
@@ -106,7 +106,7 @@ public class Catalog {
         session.getTransaction().commit();
         session.close();
         newFilmIns = new Film();
-        status = "Addition of new film was succesful.";
+        changeStatusMessage("Addition of new film was succesful.");
         queryFilmsFromDB();
         return "newfilm2index";
     }
@@ -128,7 +128,7 @@ public class Catalog {
         session.update(editFilmIns);
         session.getTransaction().commit();
         session.close();
-        status = "Editon of film was succesful.";
+        changeStatusMessage("Editon of film was succesful.");
         queryFilmsFromDB();
         return "editfilm2index";
     }
@@ -140,7 +140,7 @@ public class Catalog {
         session.getTransaction().commit();
         session.close();
         newDatastoreIns = new Datastore();
-        status = "Addition of new datastore was succesful.";
+        changeStatusMessage("Addition of new datastore was succesful.");
         queryDatastoreFromDB();
         return "newdatastore2datastores";
     }
@@ -150,16 +150,20 @@ public class Catalog {
 
         return "datastores2editdatastore";
     }
-    
-        public String editDatastore() {
+
+    public String editDatastore() {
         Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(editDatastoreIns);
         session.getTransaction().commit();
         session.close();
-        status = "Editon of datastore was succesful.";
+        changeStatusMessage("Editon of datastore was succesful.");
         queryFilmsFromDB();
         return "editdatastore2datastore";
+    }
+
+    public void changeStatusMessage(String message) {
+        statusMessage = "Status: " + message;
     }
 
     public List<Film> getFilteredFilmList() {
@@ -194,12 +198,12 @@ public class Catalog {
         this.searchText = searchText;
     }
 
-    public String getStatus() {
-        return status;
+    public String getStatusMessage() {
+        return statusMessage;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatusMessage(String statusMessage) {
+        this.statusMessage = statusMessage;
     }
 
     public List<Datastore> getDatastoreList() {
