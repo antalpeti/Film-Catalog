@@ -33,8 +33,10 @@ public class Catalog {
     private static final String GENRE = "Genre";
     private static final String YEAR = "Year";
 
-    private Film film;
-    private Datastore datastore;
+    private Film newFilmIns;
+    private Film editFilmIns;
+    private Datastore newDatastoreIns;
+    private Datastore editDatastoreIns;
     private String status;
 
     private List<Datastore> datastoreList;
@@ -48,8 +50,8 @@ public class Catalog {
         queryFilmsFromDB();
         datastoreCombo = new ArrayList<String>();
         queryDatastoreFromDB();
-        film = new Film();
-        datastore = new Datastore();
+        newFilmIns = new Film();
+        newDatastoreIns = new Datastore();
         searchParameterList = new ArrayList<String>();
         searchParameterList.add(TITLE);
         searchParameterList.add(DIRECTOR);
@@ -92,31 +94,61 @@ public class Catalog {
         }
     }
 
-    public void newFilm() {
+    public String newFilm() {
         for (Datastore ds : datastoreList) {
             if (ds.toString().equals(actDatastore)) {
-                film.setDatastore(ds);
+                newFilmIns.setDatastore(ds);
             }
         }
         Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(film);
+        session.save(newFilmIns);
         session.getTransaction().commit();
         session.close();
-        film = new Film();
+        newFilmIns = new Film();
         status = "Addition of new film was succesful.";
         queryFilmsFromDB();
+        return "newfilm2index";
     }
 
-    public void newDatastore() {
+    public String navigateFilm(Film film) {
+        editFilmIns = film;
+
+        return "index2editfilm";
+    }
+
+    public String editFilm() {
+        for (Datastore ds : datastoreList) {
+            if (ds.toString().equals(actDatastore)) {
+                editFilmIns.setDatastore(ds);
+            }
+        }
         Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(datastore);
+        session.update(editFilmIns);
         session.getTransaction().commit();
         session.close();
-        datastore = new Datastore();
+        status = "Editon of film was succesful.";
+        queryFilmsFromDB();
+        return "editfilm2index";
+    }
+
+    public String newDatastore() {
+        Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.save(newDatastoreIns);
+        session.getTransaction().commit();
+        session.close();
+        newDatastoreIns = new Datastore();
         status = "Addition of new datastore was succesful.";
         queryDatastoreFromDB();
+        return "newdatastore2datastores";
+    }
+
+    public String navigateDatastore(Datastore datastore) {
+        editDatastoreIns = datastore;
+
+        return "datastores2editdatastore";
     }
 
     public List<Film> getFilteredFilmList() {
@@ -151,14 +183,6 @@ public class Catalog {
         this.searchText = searchText;
     }
 
-    public Film getFilm() {
-        return film;
-    }
-
-    public void setFilm(Film film) {
-        this.film = film;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -191,11 +215,27 @@ public class Catalog {
         this.actDatastore = actDatastore;
     }
 
-    public Datastore getDatastore() {
-        return datastore;
+    public Film getNewFilmIns() {
+        return newFilmIns;
     }
 
-    public void setDatastore(Datastore datastore) {
-        this.datastore = datastore;
+    public void setNewFilmIns(Film newFilmIns) {
+        this.newFilmIns = newFilmIns;
+    }
+
+    public Datastore getNewDatastoreIns() {
+        return newDatastoreIns;
+    }
+
+    public void setNewDatastoreIns(Datastore newDatastoreIns) {
+        this.newDatastoreIns = newDatastoreIns;
+    }
+
+    public Film getEditFilmIns() {
+        return editFilmIns;
+    }
+
+    public void setEditFilmIns(Film editFilmIns) {
+        this.editFilmIns = editFilmIns;
     }
 }

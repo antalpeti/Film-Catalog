@@ -10,12 +10,12 @@
             <to-view-id>/newfilm.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>index2newdatastore</from-outcome>
-            <to-view-id>/newdatastore.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
             <from-outcome>index2editfilm</from-outcome>
             <to-view-id>/editfilm.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>index2datastores</from-outcome>
+            <to-view-id>/datastores.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -30,6 +30,24 @@
         <navigation-case>
             <from-outcome>newfilm2index</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/datastores.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>datastores2newdatastore</from-outcome>
+            <to-view-id>/newdatastore.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>datastores2index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/newdatastore.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>newdatastore2datastores</from-outcome>
+            <to-view-id>/datastores.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
