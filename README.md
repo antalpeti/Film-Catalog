@@ -12,7 +12,8 @@ Features:
   * Text field for search *OK*
   * Combo box to switch the searchable column content (Title, Director, Time, Genre, Year) *OK*
   * Search according to the selected combo box element *OK*
-  * Case insensitive search
+  * Case insensitive search *OK*
+  * Column insensitive search for Title, Director, Time, Genre and Year *OK*
   * Button to execute the search *OK*
   * Button to examine the stored datastores *OK*
   * Button to add a new Film record *OK*

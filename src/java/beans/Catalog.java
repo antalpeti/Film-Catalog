@@ -27,6 +27,7 @@ public class Catalog {
     private List<String> searchParameterList;
     private String searchText;
 
+    private static final String ALL = "All 5";
     private static final String TITLE = "Title";
     private static final String DIRECTOR = "Director";
     private static final String TIME = "Time";
@@ -53,6 +54,7 @@ public class Catalog {
         newFilmIns = new Film();
         newDatastoreIns = new Datastore();
         searchParameterList = new ArrayList<String>();
+        searchParameterList.add(ALL);
         searchParameterList.add(TITLE);
         searchParameterList.add(DIRECTOR);
         searchParameterList.add(TIME);
@@ -84,7 +86,13 @@ public class Catalog {
         filteredFilmList.clear();
         String lcSearchText = searchText.toLowerCase();
         for (Film f : fullFilmList) {
-            if (((TITLE.equals(actSearchParameter) && f.getTitle().toLowerCase().toLowerCase().indexOf(lcSearchText) != -1)
+            if (ALL.equals(actSearchParameter)) {
+                if (f.getTitle().toLowerCase().indexOf(lcSearchText) != -1 || f.getDirector().toLowerCase().indexOf(lcSearchText) != -1
+                        || f.getTime().toLowerCase().indexOf(lcSearchText) != -1 || f.getGenre().toLowerCase().indexOf(lcSearchText) != -1
+                        || f.getYear().toLowerCase().indexOf(lcSearchText) != -1) {
+                    filteredFilmList.add(f);
+                }
+            } else if (((TITLE.equals(actSearchParameter) && f.getTitle().toLowerCase().toLowerCase().indexOf(lcSearchText) != -1)
                     || (DIRECTOR.equals(actSearchParameter) && f.getDirector().toLowerCase().indexOf(lcSearchText) != -1)
                     || (TIME.equals(actSearchParameter) && f.getTime().toLowerCase().indexOf(lcSearchText) != -1)
                     || (GENRE.equals(actSearchParameter) && f.getGenre().toLowerCase().indexOf(lcSearchText) != -1)
@@ -133,8 +141,8 @@ public class Catalog {
         queryFilmsFromDB();
         return "editfilm2index";
     }
-    
-    public void deleteFilm(Film film){
+
+    public void deleteFilm(Film film) {
         Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         session.delete(film);
@@ -172,7 +180,7 @@ public class Catalog {
         queryFilmsFromDB();
         return "editdatastore2datastore";
     }
-    
+
     public void deleteDatastore(Datastore datastore) {
         Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
@@ -182,7 +190,7 @@ public class Catalog {
         datastoreList.remove(datastore);
         changeStatusMessage("Deletion of the datastore was successful.");
     }
-    
+
     public void changeStatusMessage(String message) {
         statusMessage = "Status: " + message;
     }
