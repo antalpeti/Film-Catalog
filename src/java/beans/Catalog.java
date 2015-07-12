@@ -106,7 +106,7 @@ public class Catalog {
         session.getTransaction().commit();
         session.close();
         newFilmIns = new Film();
-        changeStatusMessage("Addition of the new film was succesful.");
+        changeStatusMessage("Addition of the new film was successful.");
         queryFilmsFromDB();
         return "newfilm2index";
     }
@@ -128,7 +128,7 @@ public class Catalog {
         session.update(editFilmIns);
         session.getTransaction().commit();
         session.close();
-        changeStatusMessage("Editon of the film was succesful.");
+        changeStatusMessage("Editon of the film was successful.");
         queryFilmsFromDB();
         return "editfilm2index";
     }
@@ -140,7 +140,7 @@ public class Catalog {
         session.getTransaction().commit();
         session.close();
         filteredFilmList.remove(film);
-        changeStatusMessage("Deletion of the film was succesful.");
+        changeStatusMessage("Deletion of the film was successful.");
     }
 
     public String newDatastore() {
@@ -150,7 +150,7 @@ public class Catalog {
         session.getTransaction().commit();
         session.close();
         newDatastoreIns = new Datastore();
-        changeStatusMessage("Addition of new datastore was succesful.");
+        changeStatusMessage("Addition of new datastore was successful.");
         queryDatastoreFromDB();
         return "newdatastore2datastores";
     }
@@ -167,7 +167,7 @@ public class Catalog {
         session.update(editDatastoreIns);
         session.getTransaction().commit();
         session.close();
-        changeStatusMessage("Editon of the datastore was succesful.");
+        changeStatusMessage("Editon of the datastore was successful.");
         queryFilmsFromDB();
         return "editdatastore2datastore";
     }
@@ -179,7 +179,7 @@ public class Catalog {
         session.getTransaction().commit();
         session.close();
         datastoreList.remove(datastore);
-        changeStatusMessage("Deletion of the datastore was succesful.");
+        changeStatusMessage("Deletion of the datastore was successful.");
     }
     
     public void changeStatusMessage(String message) {
