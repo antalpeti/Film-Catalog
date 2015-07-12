@@ -45,9 +45,15 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Operation"/>
+                        <h:outputText value="Edit"/>
                     </f:facet>
                     <h:commandButton value="Edit" action="#{catalog.navigateDatastore(datastore)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Delete"/>
+                    </f:facet>
+                    <h:commandButton value="Delete" action="#{catalog.deleteDatastore(datastore)}"/>
                 </h:column>
             </h:dataTable>
         </h:form>

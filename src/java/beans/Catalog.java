@@ -106,7 +106,7 @@ public class Catalog {
         session.getTransaction().commit();
         session.close();
         newFilmIns = new Film();
-        changeStatusMessage("Addition of new film was succesful.");
+        changeStatusMessage("Addition of the new film was succesful.");
         queryFilmsFromDB();
         return "newfilm2index";
     }
@@ -128,9 +128,19 @@ public class Catalog {
         session.update(editFilmIns);
         session.getTransaction().commit();
         session.close();
-        changeStatusMessage("Editon of film was succesful.");
+        changeStatusMessage("Editon of the film was succesful.");
         queryFilmsFromDB();
         return "editfilm2index";
+    }
+    
+    public void deleteFilm(Film film){
+        Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(film);
+        session.getTransaction().commit();
+        session.close();
+        filteredFilmList.remove(film);
+        changeStatusMessage("Deletion of the film was succesful.");
     }
 
     public String newDatastore() {
@@ -157,11 +167,21 @@ public class Catalog {
         session.update(editDatastoreIns);
         session.getTransaction().commit();
         session.close();
-        changeStatusMessage("Editon of datastore was succesful.");
+        changeStatusMessage("Editon of the datastore was succesful.");
         queryFilmsFromDB();
         return "editdatastore2datastore";
     }
-
+    
+    public void deleteDatastore(Datastore datastore) {
+        Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(datastore);
+        session.getTransaction().commit();
+        session.close();
+        datastoreList.remove(datastore);
+        changeStatusMessage("Deletion of the datastore was succesful.");
+    }
+    
     public void changeStatusMessage(String message) {
         statusMessage = "Status: " + message;
     }
