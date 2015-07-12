@@ -44,7 +44,7 @@
                     <f:facet name="header">
                         <h:outputText value="Operation"/>
                     </f:facet>
-                    <h:commandButton value="Edit"/>
+                    <h:commandButton value="Edit" action="#{catalog.navigateDatastore(datastore)}"/>
                 </h:column>
             </h:dataTable>
         </h:form>

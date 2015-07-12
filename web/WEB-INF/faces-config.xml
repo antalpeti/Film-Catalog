@@ -42,11 +42,22 @@
             <from-outcome>datastores2index</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>datastores2editdatastore</from-outcome>
+            <to-view-id>/editdatastore.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/newdatastore.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>newdatastore2datastores</from-outcome>
+            <to-view-id>/datastores.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/editdatastore.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>editdatastore2datastore</from-outcome>
             <to-view-id>/datastores.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>

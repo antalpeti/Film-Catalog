@@ -150,6 +150,17 @@ public class Catalog {
 
         return "datastores2editdatastore";
     }
+    
+        public String editDatastore() {
+        Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.update(editDatastoreIns);
+        session.getTransaction().commit();
+        session.close();
+        status = "Editon of datastore was succesful.";
+        queryFilmsFromDB();
+        return "editdatastore2datastore";
+    }
 
     public List<Film> getFilteredFilmList() {
         return filteredFilmList;
@@ -237,5 +248,13 @@ public class Catalog {
 
     public void setEditFilmIns(Film editFilmIns) {
         this.editFilmIns = editFilmIns;
+    }
+
+    public Datastore getEditDatastoreIns() {
+        return editDatastoreIns;
+    }
+
+    public void setEditDatastoreIns(Datastore editDatastoreIns) {
+        this.editDatastoreIns = editDatastoreIns;
     }
 }
