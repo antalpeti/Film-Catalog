@@ -25,7 +25,7 @@ public class Film implements java.io.Serializable {
     private String director;
     private String time;
     private String genre;
-    private Integer year;
+    private String year;
 
     public Film() {
     }
@@ -35,7 +35,7 @@ public class Film implements java.io.Serializable {
         this.datastore = datastore;
     }
 
-    public Film(int id, Datastore datastore, String title, String director, String time, String genre, Integer year) {
+    public Film(int id, Datastore datastore, String title, String director, String time, String genre, String year) {
         this.id = id;
         this.datastore = datastore;
         this.title = title;
@@ -104,12 +104,12 @@ public class Film implements java.io.Serializable {
         this.genre = genre;
     }
 
-    @Column(name = "year")
-    public Integer getYear() {
+    @Column(name = "year", length = 20)
+    public String getYear() {
         return this.year;
     }
 
-    public void setYear(Integer year) {
+    public void setYear(String year) {
         this.year = year;
     }
 

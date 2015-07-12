@@ -56,7 +56,7 @@ CREATE TABLE `film` (
   `director` varchar(45) DEFAULT NULL,
   `time` varchar(45) DEFAULT NULL,
   `genre` varchar(45) DEFAULT NULL,
-  `year` int(11) DEFAULT NULL,
+  `year` varchar(20) DEFAULT NULL,
   `datastore_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `datastore_id_idx` (`datastore_id`),
@@ -70,7 +70,7 @@ CREATE TABLE `film` (
 
 LOCK TABLES `film` WRITE;
 /*!40000 ALTER TABLE `film` DISABLE KEYS */;
-INSERT INTO `film` VALUES (1,'Pirates of the Caribbean: The Curse of the Black Pearl','Gore Verbinski','143 min','Action, Adventure, Fantasy',2003,1),(2,'Pirates of the Pirates of the Caribbean: Dead Man\'s Chest','Gore Verbinski','151 min','Action, Adventure, Fantasy',2006,1),(3,'Pirates of the Caribbean: At World\'s End ','Gore Verbinski','169 min','Action, Adventure, Fantasy',2007,1),(4,'Pirates of the Caribbean: On Stranger Tides','Rob Marshall','136 min','Action, Adventure, Fantasy',2011,1),(5,'Stargate','Roland Emmerich','121 min','Action, Adventure, Sci-Fi',1995,2),(6,'Stargate: Continuum','Martin Wood','98 min','Action, Adventure, Fantasy',2008,2),(7,'Stargate: The Ark of Truth','Robert C. Cooper','97 min','Adventure, Fantasy, Sci-Fi',2008,2);
+INSERT INTO `film` VALUES (1,'Pirates of the Caribbean: The Curse of the Black Pearl','Gore Verbinski','143 min','Action, Adventure, Fantasy','2003',1),(2,'Pirates of the Pirates of the Caribbean: Dead Man\'s Chest','Gore Verbinski','151 min','Action, Adventure, Fantasy','2006',1),(3,'Pirates of the Caribbean: At World\'s End ','Gore Verbinski','169 min','Action, Adventure, Fantasy','2007',1),(4,'Pirates of the Caribbean: On Stranger Tides','Rob Marshall','136 min','Action, Adventure, Fantasy','2011',1),(5,'Stargate','Roland Emmerich','121 min','Action, Adventure, Sci-Fi','1995',2),(6,'Stargate: Continuum','Martin Wood','98 min','Action, Adventure, Fantasy','2008',2),(7,'Stargate: The Ark of Truth','Robert C. Cooper','97 min','Adventure, Fantasy, Sci-Fi','2008',2);
 /*!40000 ALTER TABLE `film` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

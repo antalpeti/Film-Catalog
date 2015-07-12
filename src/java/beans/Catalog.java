@@ -87,7 +87,7 @@ public class Catalog {
                     || (DIRECTOR.equals(actSearchParameter) && f.getDirector().indexOf(searchText) != -1)
                     || (TIME.equals(actSearchParameter) && f.getTime().indexOf(searchText) != -1)
                     || (GENRE.equals(actSearchParameter) && f.getGenre().indexOf(searchText) != -1)
-                    || (YEAR.equals(actSearchParameter) && f.getYear() == Integer.parseInt(actSearchParameter)))
+                    || (YEAR.equals(actSearchParameter) && f.getYear().indexOf(searchText) != -1))
                     || (searchText.isEmpty())) {
                 filteredFilmList.add(f);
             }
