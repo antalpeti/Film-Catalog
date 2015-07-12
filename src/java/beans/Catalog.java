@@ -82,12 +82,13 @@ public class Catalog {
 
     public void searchFilm() {
         filteredFilmList.clear();
+        String lcSearchText = searchText.toLowerCase();
         for (Film f : fullFilmList) {
-            if (((TITLE.equals(actSearchParameter) && f.getTitle().indexOf(searchText) != -1)
-                    || (DIRECTOR.equals(actSearchParameter) && f.getDirector().indexOf(searchText) != -1)
-                    || (TIME.equals(actSearchParameter) && f.getTime().indexOf(searchText) != -1)
-                    || (GENRE.equals(actSearchParameter) && f.getGenre().indexOf(searchText) != -1)
-                    || (YEAR.equals(actSearchParameter) && f.getYear().indexOf(searchText) != -1))
+            if (((TITLE.equals(actSearchParameter) && f.getTitle().toLowerCase().toLowerCase().indexOf(lcSearchText) != -1)
+                    || (DIRECTOR.equals(actSearchParameter) && f.getDirector().toLowerCase().indexOf(lcSearchText) != -1)
+                    || (TIME.equals(actSearchParameter) && f.getTime().toLowerCase().indexOf(lcSearchText) != -1)
+                    || (GENRE.equals(actSearchParameter) && f.getGenre().toLowerCase().indexOf(lcSearchText) != -1)
+                    || (YEAR.equals(actSearchParameter) && f.getYear().toLowerCase().indexOf(lcSearchText) != -1))
                     || (searchText.isEmpty())) {
                 filteredFilmList.add(f);
             }
