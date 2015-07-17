@@ -11,16 +11,16 @@
             <table>
                 <tr>
                     <td>
-                        <h:outputLabel value="Name" for="nameId" />
+                        <h:outputLabel value="#{msg.name}" for="nameId" />
                     </td>
                     <td>
-                        <h:outputLabel value="Type" for="typeId" />
+                        <h:outputLabel value="#{msg.type}" for="typeId" />
                     </td>
                     <td>
-                        <h:outputLabel value="Place" for="placeId" />
+                        <h:outputLabel value="#{msg.place}" for="placeId" />
                     </td>
                     <td>
-                        <h:outputLabel value="Operation"/>
+                        <h:outputLabel value="#{msg.operation}"/>
                     </td>
                 </tr>
                 <tr>
@@ -34,7 +34,7 @@
                         <h:inputText value="#{catalog.editDatastoreIns.place}" id="placeId"/>
                     </td>
                     <td>
-                        <h:commandButton value="Apply" action="#{catalog.editDatastore()}"/>
+                        <h:commandButton value="#{msg.apply}" action="#{catalog.editDatastore()}"/>
                     </td>
                 </tr>
      

@@ -20,13 +20,13 @@
                         </h:selectOneMenu><br/>
                     </td>
                     <td>
-                        <h:commandButton value="Search" action="#{catalog.searchFilm()}"/><br/>
+                        <h:commandButton value="#{msg.search}" action="#{catalog.searchFilm()}"/><br/>
                     </td>
                     <td>
-                        <h:commandButton value="New Film" action="index2newfilm"/><br/>
+                        <h:commandButton value="#{msg.new_film}" action="index2newfilm"/><br/>
                     </td>
                     <td>
-                        <h:commandButton value="Datastores" action="index2datastores"/><br/>
+                        <h:commandButton value="#{msg.datastores}" action="index2datastores"/><br/>
                     </td>
                     <td>
                         <h:outputText value="#{catalog.statusMessage}" />
@@ -38,63 +38,63 @@
                 value="#{catalog.filteredFilmList}" var="film">
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Title"/>
+                        <h:outputText value="#{msg.title}"/>
                     </f:facet>
                     <h:outputText value="#{film.title}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Director"/>
+                        <h:outputText value="#{msg.director}"/>
                     </f:facet>
                     <h:outputText value="#{film.director}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Time"/>
+                        <h:outputText value="#{msg.time}"/>
                     </f:facet>
                     <h:outputText value="#{film.time}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Genre"/>
+                        <h:outputText value="#{msg.genre}"/>
                     </f:facet>
                     <h:outputText value="#{film.genre}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Year"/>
+                        <h:outputText value="#{msg.year}"/>
                     </f:facet>
                     <h:outputText value="#{film.year}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="DS Name"/>
+                        <h:outputText value="#{msg.ds_name}"/>
                     </f:facet>
                     <h:outputText value="#{film.datastore.name}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="DS Type"/>
+                        <h:outputText value="#{msg.ds_type}"/>
                     </f:facet>
                     <h:outputText value="#{film.datastore.type}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="DS Place"/>
+                        <h:outputText value="#{msg.ds_place}"/>
                     </f:facet>
                     <h:outputText value="#{film.datastore.place}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Edit"/>
+                        <h:outputText value="#{msg.edit}"/>
                     </f:facet>
-                    <h:commandButton value="Edit" action="#{catalog.navigateFilm(film)}"/>
+                    <h:commandButton value="#{msg.edit}" action="#{catalog.navigateFilm(film)}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Delete"/>
+                        <h:outputText value="#{msg.delete}"/>
                     </f:facet>
-                    <h:commandButton value="Delete" action="#{catalog.deleteFilm(film)}"/>
+                    <h:commandButton value="#{msg.delete}" action="#{catalog.deleteFilm(film)}"/>
                 </h:column>
             </h:dataTable>
         </h:form>

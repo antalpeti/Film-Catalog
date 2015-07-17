@@ -10,16 +10,16 @@
             <table>
                 <tr>
                     <td>
-                        <h:outputLabel value="Name" for="nameId" />
+                        <h:outputLabel value="#{msg.name}" for="nameId" />
                     </td>
                     <td>
-                        <h:outputLabel value="Type" for="typeId" />
+                        <h:outputLabel value="#{msg.type}" for="typeId" />
                     </td>
                     <td>
-                        <h:outputLabel value="Place" for="placeId" />
+                        <h:outputLabel value="#{msg.place}" for="placeId" />
                     </td>
                     <td>
-                        <h:outputLabel value="Operation" />
+                        <h:outputLabel value="#{msg.operation}" />
                     </td>
                 </tr>
                 <tr>
@@ -33,7 +33,7 @@
                         <h:inputText value="#{catalog.newDatastoreIns.place}" id="placeId"/><br/>
                     </td>
                     <td>
-                        <h:commandButton value="Add" action="#{catalog.newDatastore()}"/>
+                        <h:commandButton value="#{msg.add}" action="#{catalog.newDatastore()}"/>
                     </td>
                 </tr>
             </table>

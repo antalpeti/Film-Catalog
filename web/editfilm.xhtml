@@ -11,25 +11,25 @@
             <table>
                 <tr>
                     <td>
-                        <h:outputLabel value="Title" for="titleId" />
+                        <h:outputLabel value="#{msg.title}" for="titleId" />
                     </td>
                     <td>
-                        <h:outputLabel value="Director" for="directorId" />
+                        <h:outputLabel value="#{msg.director}" for="directorId" />
                     </td>
                     <td>
-                        <h:outputLabel value="Time" for="timeId" />
+                        <h:outputLabel value="#{msg.time}" for="timeId" />
                     </td>
                     <td>
-                        <h:outputLabel value="Genre" for="genreId" />
+                        <h:outputLabel value="#{msg.genre}" for="genreId" />
                     </td>
                     <td>
-                        <h:outputLabel value="Year" for="yearId" />
+                        <h:outputLabel value="#{msg.year}" for="yearId" />
                     </td>
                     <td>
-                        <h:outputLabel value="Datastore"/>
+                        <h:outputLabel value="#{msg.datastore}"/>
                     </td>
                     <td>
-                        <h:outputLabel value="Operation"/>
+                        <h:outputLabel value="#{msg.operation}"/>
                     </td>
                 </tr>
                 <tr>
@@ -54,7 +54,7 @@
                         </h:selectOneMenu>
                     </td>
                     <td>
-                        <h:commandButton value="Apply" action="#{catalog.editFilm()}"/>
+                        <h:commandButton value="#{msg.apply}" action="#{catalog.editFilm()}"/>
                     </td>
                 </tr>
             </table>

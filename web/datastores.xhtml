@@ -12,10 +12,10 @@
             <table>
                 <tr>
                     <td>
-                        <h:commandButton value="Back To Index" action="datastores2index"/><br/>
+                        <h:commandButton value="#{msg.back_to_index}" action="datastores2index"/><br/>
                     </td>
                     <td>
-                        <h:commandButton value="New Datastore" action="datastores2newdatastore"/><br/>
+                        <h:commandButton value="#{msg.new_datastore}" action="datastores2newdatastore"/><br/>
                     </td>
                     <td>
                         <h:outputText value="#{catalog.statusMessage}" />
@@ -27,33 +27,33 @@
                          value="#{catalog.datastoreList}" var="datastore">
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Name"/>
+                        <h:outputText value="#{msg.name}"/>
                     </f:facet>
                     <h:outputText value="#{datastore.name}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Type"/>
+                        <h:outputText value="#{msg.type}"/>
                     </f:facet>
                     <h:outputText value="#{datastore.type}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Place"/>
+                        <h:outputText value="#{msg.place}"/>
                     </f:facet>
                     <h:outputText value="#{datastore.place}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Edit"/>
+                        <h:outputText value="#{msg.edit}"/>
                     </f:facet>
-                    <h:commandButton value="Edit" action="#{catalog.navigateDatastore(datastore)}"/>
+                    <h:commandButton value="#{msg.edit}" action="#{catalog.navigateDatastore(datastore)}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Delete"/>
+                        <h:outputText value="#{msg.delete}"/>
                     </f:facet>
-                    <h:commandButton value="Delete" action="#{catalog.deleteDatastore(datastore)}"/>
+                    <h:commandButton value="#{msg.delete}" action="#{catalog.deleteDatastore(datastore)}"/>
                 </h:column>
             </h:dataTable>
         </h:form>
